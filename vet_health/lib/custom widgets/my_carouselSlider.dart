@@ -44,7 +44,7 @@ class _MyCarouselSliderState extends State<MyCarouselSlider> {
           height: 12,
         ),
         Positioned(
-          left: 155,
+          left: MediaQuery.of(context).size.width /2.25,
           bottom: 10,
           child: buildIndicator(),
         ),
