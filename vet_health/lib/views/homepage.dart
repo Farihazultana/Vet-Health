@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vet_health/custom%20widgets/my_bottomNavbar.dart';
 import 'package:vet_health/custom%20widgets/my_carouselSlider.dart';
-import '../custom widgets/my_navBar.dart';
+import '../custom widgets/my_navDrawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,33 +14,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const MyBottomNavbar(),
-      drawer: const MyNavBar(),
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white),
-        centerTitle: true,
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.refresh_rounded,
-                color: Colors.white,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.flag_circle,
-                color: Colors.white,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.flag_circle,
-                color: Colors.white,
-              )),
-        ],
-        backgroundColor: const Color.fromARGB(255, 39, 34, 85),
-      ),
+      
+      
+      
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -64,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Container(
                       width: 100,
                       height: 100,
@@ -79,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Container(
                       width: 100,
                       height: 100,
@@ -94,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Container(
                       width: 100,
                       height: 100,
@@ -126,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Container(
                       width: 100,
                       height: 100,
@@ -141,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Container(
                       width: 100,
                       height: 100,
@@ -156,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Container(
                       width: 100,
                       height: 100,
