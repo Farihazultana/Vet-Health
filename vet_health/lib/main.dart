@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vet_health/views/root.dart';
 
-import 'homepage.dart';
+import 'views/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const Root(),
     );
   }
 }
