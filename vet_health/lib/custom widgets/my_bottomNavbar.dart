@@ -1,6 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
+import '../views/aquaPage.dart';
+import '../views/dairyPage.dart';
+import '../views/doctorPage.dart';
+import '../views/homepage.dart';
+import '../views/poultryPage.dart';
+
 class MyBottomNavbar extends StatefulWidget {
   const MyBottomNavbar({super.key});
 
@@ -10,11 +16,18 @@ class MyBottomNavbar extends StatefulWidget {
 
 class _MyBottomNavbarState extends State<MyBottomNavbar> {
   int selectedIndex = 0;
+  final List<Widget> _pages = [
+    const HomePage(),
+    const DairyPage(),
+    const DoctorPage(),
+    const PoultryPage(),
+    const AquaPage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
-      backgroundColor: const Color.fromARGB(255, 39, 34, 85),
-      color: const Color.fromARGB(255, 39, 34, 85),
+      backgroundColor: const Color.fromARGB(255, 33, 17, 105),
+      color: const Color.fromARGB(255, 33, 17, 105),
       animationDuration: const Duration(milliseconds: 200),
       onTap: (index) {
         print(index);
@@ -69,14 +82,14 @@ class _MyBottomNavbarState extends State<MyBottomNavbar> {
         children: [
           CircleAvatar(
             backgroundColor: Colors.transparent,
-            radius: 12, // Adjust the radius as needed
+            radius: 12,
             child:
                 Center(child: Icon(iconData, size: 25, color: backgroundColor)),
           ),
-          //const SizedBox(height: 3), // Adjust the spacing between icon and text
+
           Text(
             label,
-            style: const TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white, fontSize: 10),
           ),
         ],
       ),
