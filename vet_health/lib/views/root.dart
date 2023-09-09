@@ -18,6 +18,7 @@ class Root extends StatefulWidget {
 class _Root extends State<Root> {
   int selectedIndex = 0;
   final PageController _pageController = PageController();
+  String appBarTitle = '';
 
   final List<Widget> _pages = [
     const HomePage(),
@@ -32,27 +33,28 @@ class _Root extends State<Root> {
     return Scaffold(
       drawer: const MyNavDrawer(),
       appBar: AppBar(
+        title: Text(appBarTitle, textAlign: TextAlign.start, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),),
         iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.refresh_rounded,
-                color: Colors.white,
-              )),
+            onPressed: () {},
+            icon: Image.asset(
+              'assets/images/icons/sync.png',
+              color: Colors.white,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset('assets/images/icons/bangladesh.png')),
+          ),
           IconButton(
               onPressed: () {},
-              icon: const Icon(
-                Icons.flag_circle,
-                color: Colors.white,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.flag_circle,
-                color: Colors.white,
-              )),
+              icon: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset('assets/images/icons/uk.png'))),
         ],
         backgroundColor: const Color.fromARGB(255, 33, 17, 105),
       ),
@@ -61,7 +63,39 @@ class _Root extends State<Root> {
         onPageChanged: (index) {
           setState(() {
             selectedIndex = index;
+            switch (index) {
+              case 0:
+                {
+                  appBarTitle = '';
+                }
+                break;
+              case 1:
+                {
+                  appBarTitle = 'Cattle';
+                }
+                break;
+              case 2:
+                {
+                  appBarTitle = 'Prescription';
+                }
+                break;
+              case 3:
+                {
+                  appBarTitle = 'Poultry';
+                }
+                break;
+              case 4:
+                {
+                  appBarTitle = 'Aqua';
+                }
+                break;
+            }
           });
+          _pageController.animateToPage(
+            index,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
         },
         children: _pages,
       ),
@@ -104,15 +138,21 @@ class _Root extends State<Root> {
             backgroundColor: Colors.transparent,
             radius: 12,
             child: Center(
-                child: Icon(iconData,
-                    size: 25,
-                     color: isSelected ? Colors.white : Color.fromARGB(255, 108, 126, 134),)),
+                child: Icon(
+              iconData,
+              size: 25,
+              color: isSelected
+                  ? Colors.white
+                  : Color.fromARGB(255, 108, 126, 134),
+            )),
           ),
           Text(
             label,
             style: TextStyle(
-               color: isSelected ? Colors.white : Color.fromARGB(255, 108, 126, 134), fontSize: 12
-            ),
+                color: isSelected
+                    ? Colors.white
+                    : Color.fromARGB(255, 108, 126, 134),
+                fontSize: 12),
           ),
         ],
       ),
