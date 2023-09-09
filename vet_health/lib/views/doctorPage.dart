@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vet_health/custom%20widgets/my_listView.dart';
-import 'package:vet_health/custom%20widgets/my_searchBar.dart';
+import 'package:image_picker/image_picker.dart';
+
 
 class DoctorPage extends StatefulWidget {
   const DoctorPage({super.key});
@@ -10,6 +10,22 @@ class DoctorPage extends StatefulWidget {
 }
 
 class _DoctorPageState extends State<DoctorPage> with TickerProviderStateMixin {
+
+   final ImagePicker _picker = ImagePicker();
+   PickedFile? _pickedImage;
+
+   Future<void> _openCamera() async{
+    final pickedImage = await _picker.pickImage(source: ImageSource.camera);
+    setState(() {
+      _pickedImage = pickedImage as PickedFile?;
+    });
+   }
+    Future<void> _openGallery() async {
+    final pickedImage = await _picker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      _pickedImage = pickedImage as PickedFile?;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
@@ -70,11 +86,65 @@ class _DoctorPageState extends State<DoctorPage> with TickerProviderStateMixin {
               ),
             ),
           ),
-          
           Expanded(
               child: TabBarView(controller: tabController, children: [
-            SizedBox(height: 50,child: Image.asset('assets/images/prescription_icon.png')),
-            Center(child: Text('Prescription Detail')),
+            SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(color: Colors.white70),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                            height: 270,
+                            width: 200,
+                            child: Image.asset('assets/images/prescription_icon.png')),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: InkWell(
+                                onTap: _openCamera,
+                                child: Container(
+                                  height: 100,
+                                  width: 100,
+                                  decoration: const BoxDecoration(color: Colors.green),
+                                  child: const Center(child: Text('Take Photos')),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 10,),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: InkWell(
+                                onTap: _openGallery,
+                                child: Container(
+                                  height: 100,
+                                  width: 100,
+                                  decoration: const BoxDecoration(color: Colors.blue),
+                                  child: const Center(child: Text('Gallery')),
+                                ),
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Container(
+                      height: 20,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: const BoxDecoration(color: Color.fromARGB(232, 86, 150, 119)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Center(child: Text('Prescription Detail')), // for Prescription Tab
           ]))
         ],
       ),
