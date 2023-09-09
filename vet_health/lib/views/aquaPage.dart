@@ -10,7 +10,7 @@ class AquaPage extends StatefulWidget {
   State<AquaPage> createState() => _AquaPageState();
 }
 
-class _AquaPageState extends State<AquaPage>with TickerProviderStateMixin {
+class _AquaPageState extends State<AquaPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
@@ -81,9 +81,19 @@ class _AquaPageState extends State<AquaPage>with TickerProviderStateMixin {
                   margin:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: ListTile(
-                    leading: SizedBox(height: 35,child: Image.asset('assets/images/Icon_Product_Details_001.png')),
-                    title: Text("Aqua Name ${index + 1}", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.blue[900])),
-                    subtitle: Text('Aqua Description ${index + 1}', style: const TextStyle(fontSize: 12, color: Colors.blue),),
+                    leading: SizedBox(
+                        height: 35,
+                        child: Image.asset(
+                            'assets/images/Icon_Product_Details_003.png')),
+                    title: Text("Aqua Name ${index + 1}",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue[900])),
+                    subtitle: Text(
+                      'Aqua Description ${index + 1}',
+                      style: const TextStyle(fontSize: 12, color: Colors.blue),
+                    ),
                     trailing: Icon(Icons.arrow_forward_rounded),
                   ),
                 );
@@ -96,9 +106,19 @@ class _AquaPageState extends State<AquaPage>with TickerProviderStateMixin {
                   margin:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: ListTile(
-                    leading: SizedBox(height: 35,child: Image.asset('assets/images/Icon_Product_Details_001.png')),
-                    title: Text("Aqua Name ${index + 1}", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.blue[900])),
-                    subtitle: Text('Aqua Description ${index + 1}', style: const TextStyle(fontSize: 12, color: Colors.blue),),
+                    leading: SizedBox(
+                        height: 35,
+                        child: Image.asset(
+                            'assets/images/Icon_Product_Details_003.png')),
+                    title: Text("Aqua Name ${index + 1}",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue[900])),
+                    subtitle: Text(
+                      'Aqua Description ${index + 1}',
+                      style: const TextStyle(fontSize: 12, color: Colors.blue),
+                    ),
                     trailing: Icon(Icons.arrow_forward_rounded),
                   ),
                 );

@@ -10,7 +10,7 @@ class DairyPage extends StatefulWidget {
   State<DairyPage> createState() => _DairyPageState();
 }
 
-class _DairyPageState extends State<DairyPage>with TickerProviderStateMixin {
+class _DairyPageState extends State<DairyPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
@@ -81,9 +81,19 @@ class _DairyPageState extends State<DairyPage>with TickerProviderStateMixin {
                   margin:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: ListTile(
-                    leading: SizedBox(height: 35,child: Image.asset('assets/images/Icon_Product_Details_001.png')),
-                    title: Text("Product Name ${index + 1}", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.blue[900])),
-                    subtitle: Text('Product Description ${index + 1}', style: const TextStyle(fontSize: 12, color: Colors.blue),),
+                    leading: SizedBox(
+                        height: 35,
+                        child: Image.asset(
+                            'assets/images/Icon_Product_Details_001.png')),
+                    title: Text("Product Name ${index + 1}",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue[900])),
+                    subtitle: Text(
+                      'Product Description ${index + 1}',
+                      style: const TextStyle(fontSize: 12, color: Colors.blue),
+                    ),
                     trailing: Icon(Icons.arrow_forward_rounded),
                   ),
                 );
@@ -96,9 +106,19 @@ class _DairyPageState extends State<DairyPage>with TickerProviderStateMixin {
                   margin:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: ListTile(
-                    leading: SizedBox(height: 35,child: Image.asset('assets/images/Icon_Product_Details_001.png')),
-                    title: Text("Generic Name ${index + 1}", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.blue[900])),
-                    subtitle: Text('Generic Description ${index + 1}', style: const TextStyle(fontSize: 12, color: Colors.blue),),
+                    leading: SizedBox(
+                        height: 35,
+                        child: Image.asset(
+                            'assets/images/Icon_Product_Details_001.png')),
+                    title: Text("Generic Name ${index + 1}",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue[900])),
+                    subtitle: Text(
+                      'Generic Description ${index + 1}',
+                      style: const TextStyle(fontSize: 12, color: Colors.blue),
+                    ),
                     trailing: Icon(Icons.arrow_forward_rounded),
                   ),
                 );
