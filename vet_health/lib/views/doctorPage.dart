@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
+import 'package:vet_health/custom%20widgets/my_TextInputWithHint.dart';
 
 class DoctorPage extends StatefulWidget {
   const DoctorPage({super.key});
@@ -10,22 +10,23 @@ class DoctorPage extends StatefulWidget {
 }
 
 class _DoctorPageState extends State<DoctorPage> with TickerProviderStateMixin {
+  final ImagePicker _picker = ImagePicker();
+  PickedFile? _pickedImage;
 
-   final ImagePicker _picker = ImagePicker();
-   PickedFile? _pickedImage;
-
-   Future<void> _openCamera() async{
+  Future<void> _openCamera() async {
     final pickedImage = await _picker.pickImage(source: ImageSource.camera);
     setState(() {
       _pickedImage = pickedImage as PickedFile?;
     });
-   }
-    Future<void> _openGallery() async {
+  }
+
+  Future<void> _openGallery() async {
     final pickedImage = await _picker.pickImage(source: ImageSource.gallery);
     setState(() {
       _pickedImage = pickedImage as PickedFile?;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
@@ -99,7 +100,8 @@ class _DoctorPageState extends State<DoctorPage> with TickerProviderStateMixin {
                         SizedBox(
                             height: 270,
                             width: 200,
-                            child: Image.asset('assets/images/prescription_icon.png')),
+                            child: Image.asset(
+                                'assets/images/prescription_icon.png')),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -110,12 +112,16 @@ class _DoctorPageState extends State<DoctorPage> with TickerProviderStateMixin {
                                 child: Container(
                                   height: 100,
                                   width: 100,
-                                  decoration: const BoxDecoration(color: Colors.green),
-                                  child: const Center(child: Text('Take Photos')),
+                                  decoration:
+                                      const BoxDecoration(color: Colors.green),
+                                  child:
+                                      const Center(child: Text('Take Photos')),
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 10,),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: InkWell(
@@ -123,7 +129,8 @@ class _DoctorPageState extends State<DoctorPage> with TickerProviderStateMixin {
                                 child: Container(
                                   height: 100,
                                   width: 100,
-                                  decoration: const BoxDecoration(color: Colors.blue),
+                                  decoration:
+                                      const BoxDecoration(color: Colors.blue),
                                   child: const Center(child: Text('Gallery')),
                                 ),
                               ),
@@ -138,13 +145,48 @@ class _DoctorPageState extends State<DoctorPage> with TickerProviderStateMixin {
                     child: Container(
                       height: 20,
                       width: MediaQuery.of(context).size.width,
-                      decoration: const BoxDecoration(color: Color.fromARGB(232, 86, 150, 119)),
+                      decoration: const BoxDecoration(
+                          color: Color.fromARGB(232, 86, 150, 119)),
                     ),
+                  ),
+
+                  // Text Input fields
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: MyTextInputWithHint(hint: 'Bird/Animal Type'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const MyTextInputWithHint(hint: 'Species'),
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: const MyTextInputWithHint(hint: 'Age'),
+                        ),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: const MyTextInputWithHint(hint: 'Weight'),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const MyTextInputWithHint(hint: 'Symptoms'),
                   ),
                 ],
               ),
             ),
-            const Center(child: Text('Prescription Detail')), // for Prescription Tab
+            const Center(
+                child: Text('Prescription Detail')), // for Prescription Tab
           ]))
         ],
       ),
