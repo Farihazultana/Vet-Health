@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:vet_health/custom%20widgets/my_TextInputWithHint.dart';
+import 'package:vet_health/custom%20widgets/my_iconTextButton.dart';
 
 class DoctorPage extends StatefulWidget {
   const DoctorPage({super.key});
@@ -182,6 +183,9 @@ class _DoctorPageState extends State<DoctorPage> with TickerProviderStateMixin {
                     padding: const EdgeInsets.all(8.0),
                     child: const MyTextInputWithHint(hint: 'Symptoms'),
                   ),
+
+                  MyIconTextButton(),
+                  SizedBox(height: 25,)
                 ],
               ),
             ),
