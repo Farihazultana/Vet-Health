@@ -29,7 +29,7 @@ class _MyTextInputWithHintState extends State<MyTextInputWithHint> {
         if (_isFocused || _controller.text.isNotEmpty)
           AnimatedContainer(
             duration: const Duration(milliseconds: 200),
-            padding: const EdgeInsets.only(left: 8.0, top: 10.0),
+            padding: const EdgeInsets.only(left: 8.0, top: 5.0),
             child: Text(
               widget.hint,
               style: TextStyle(

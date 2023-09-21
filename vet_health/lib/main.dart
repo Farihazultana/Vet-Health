@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vet_health/views/root.dart';
 
-import 'views/homepage.dart';
 
 void main() {
   runApp(const MyApp());

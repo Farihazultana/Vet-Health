@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vet_health/custom%20widgets/my_listView.dart';
 
+import '../custom widgets/my_ShowDescription.dart';
 import '../custom widgets/my_searchBar.dart';
 
 class PoultryPage extends StatefulWidget {
@@ -15,6 +16,83 @@ class _PoultryPageState extends State<PoultryPage>
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
+    List<Widget> generateParagraphs() {
+      List<Widget> paragraphs = [];
+      paragraphs.add(Column(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width - 20,
+            decoration:
+                const BoxDecoration(color: Color.fromARGB(255, 36, 82, 161)),
+            child: const Padding(
+              padding: EdgeInsets.all(3.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Water sluble powder',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                  Text(
+                    'A-Cold Vet',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 2,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width - 20,
+            decoration: BoxDecoration(
+              color: Colors.blueAccent[100],
+            ),
+            child: const Text(
+              'Bromhexline Hydrochloride',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+            ),
+          )
+        ],
+      ));
+      paragraphs.add(Container(
+        width: MediaQuery.of(context).size.width - 20,
+        decoration: BoxDecoration(color: Colors.blueAccent[200]),
+        child: const Padding(
+          padding: EdgeInsets.all(3.0),
+          child: Text(
+            'Composition',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),
+          ),
+        ),
+      ));
+      paragraphs.add(
+          const Text('Each gram contains Bromhexine Hydrochloride BP 10 mg.'));
+      paragraphs.add(Container(
+          width: MediaQuery.of(context).size.width - 20,
+          decoration: const BoxDecoration(color: Colors.blueAccent),
+          child: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Pharmacology',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              ),
+              
+            ],
+          )));
+
+      return paragraphs;
+    }
+
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 55, 157, 170).withOpacity(0.3),
       body: Column(
@@ -96,6 +174,14 @@ class _PoultryPageState extends State<PoultryPage>
                       style: const TextStyle(fontSize: 12, color: Colors.blue),
                     ),
                     trailing: Icon(Icons.arrow_forward_rounded),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyShowDescription(
+                                    paragraph: generateParagraphs(),
+                                  )));
+                    },
                   ),
                 );
               },
@@ -121,6 +207,14 @@ class _PoultryPageState extends State<PoultryPage>
                       style: const TextStyle(fontSize: 12, color: Colors.blue),
                     ),
                     trailing: Icon(Icons.arrow_forward_rounded),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyShowDescription(
+                                    paragraph: generateParagraphs(),
+                                  )));
+                    },
                   ),
                 );
               },
